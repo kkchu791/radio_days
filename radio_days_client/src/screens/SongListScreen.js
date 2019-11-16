@@ -26,7 +26,8 @@ const SongListScreen = (props) => {
               title={item.title}
               onPress={() => {
                 props.navigation.navigate('PlaySong', {
-                  songId: item.id
+                  songId: item.id,
+                  songTitle: item.title,
                 });
               }}
             />

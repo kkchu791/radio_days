@@ -1,9 +1,7 @@
 from fuzzywuzzy import fuzz
 
-personal_lyrics = "Johanna blah blah blah"
-real_lyrics = """Johanna drove slowly into the city
-    The Hudson river all filled with snow
-    She spied the ring on his honor's finger
-    Oh, oh, oh"""
+personal_lyrics = "Johanna fell into the city"
+with open ('correct_lyrics.txt', 'r') as lyric_file:
+    real_lyrics = lyric_file.read()
 Ratio = fuzz.ratio(personal_lyrics.lower(), real_lyrics.lower())
 print(Ratio)

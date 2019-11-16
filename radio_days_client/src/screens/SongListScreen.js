@@ -1,17 +1,17 @@
 import React from 'react';
 import {
-  Text,
   StyleSheet,
   FlatList,
-  View
+  View,
+  Button,
 } from 'react-native';
 
 const songs = [
-  {title: "Gimme Shelter", author: "Rolling Stones"},
-  {title: "Bohemiab Rhapsody", author: "Queen"},
-  {title: "Sweet Child O' Mine", author: "Guns N' Roses"},
-  {title: "Livin' On A Prayer", author: "Bon Jovi"},
-  {title: "Kickstart My Heart", author: "Motley Crue"}
+  {title: "Gimme Shelter", author: "Rolling Stones", id: '1'},
+  {title: "Bohemiab Rhapsody", author: "Queen", id: '2'},
+  {title: "Sweet Child O' Mine", author: "Guns N' Roses", id: '3'},
+  {title: "Livin' On A Prayer", author: "Bon Jovi", id: '4'},
+  {title: "Kickstart My Heart", author: "Motley Crue", id: '5'}
 ]
 
 const SongListScreen = (props) => {
@@ -19,13 +19,18 @@ const SongListScreen = (props) => {
     <View>
       <FlatList
         data={songs}
-        keyExtractor={(song) => song.title}
+        keyExtractor={(song) => song.id}
         renderItem={({item}) => {
           return (
-            <Text>
-              {item.title}
-            </Text>
-          )
+            <Button
+              title={item.title}
+              onPress={() => {
+                props.navigation.navigate('PlaySong', {
+                  songId: item.id
+                });
+              }}
+            />
+          );
         }}
       />
     </View>

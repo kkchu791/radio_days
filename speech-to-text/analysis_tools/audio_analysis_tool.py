@@ -1,5 +1,6 @@
 import io
 import os
+from fuzzywuzzy import fuzz
 
 # Imports the Google Cloud client library
 from google.cloud import speech
@@ -27,7 +28,13 @@ config = types.RecognitionConfig(
 
 # Detects speech in the audio file
 response = client.recognize(config, audio)
-f = open("lyrics/song1.txt", "w+")
 for result in response.results:
-    f.write('Transcript: {}'.format(result.alternatives[0].transcript))
-f.close()
+    contestants_lyrics = '{}'.format(result.alternatives[0].transcript)
+
+# Creates a string based on the correct lyrics
+with open ('correct_lyrics.txt', 'r') as lyric_file:
+    real_lyrics = lyric_file.read()
+
+# Analyzes the two strings and returns a percentage of how a like they are.
+ratio = fuzz.ratio(contestants_lyrics.lower(), real_lyrics.lower())
+print(ratio)

@@ -17,6 +17,7 @@ import PlayBackControls from '../components/player/PlayBackControls';
 const tempImg = 'https://picsum.photos/200';
 
 const tempMusic = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+// const tempMusic = require("../assets/music/response.m3u8");
 
 const PlaySongScreen = (props) => {
   const { navigation } = props;
@@ -86,7 +87,7 @@ const PlaySongScreen = (props) => {
       <PlayerHeader
         message={navigation.getParam('songTitle')}
       />
-      <AlbumArt url={navigation.getParam('albumArt') || tempImg} />
+      <AlbumArt url={navigation.getParam('albumArt')} />
       <TrackDetails
         title={navigation.getParam('songTitle')}
         artist={navigation.getParam('artist')}

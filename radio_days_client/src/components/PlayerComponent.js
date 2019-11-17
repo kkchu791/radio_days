@@ -74,19 +74,19 @@ const PlayerComponent = (props) => {
 
   return (
     <View style={styles.playerContainer}>
-      <PlayerHeader
+      {/* <PlayerHeader
         message={props.songTitle}
-      />
+      /> */}
       <CarouselScreen />
       {/* <AlbumArt url={props.albumArt} /> */}
-      <TrackDetails
+      {/* <TrackDetails
         title={props.songTitle}
         artist={props.artist}
-      />
-      <SeekBar
+      /> */}
+      {/* <SeekBar
         trackLength={200}
         currentPosition={50}
-      />
+      /> */}
       {/* <PlayBackControls
         paused={!playing}
         onPressPause={() => pause()}

@@ -6,6 +6,8 @@ import PlaySongScreen from "./src/screens/PlaySongScreen";
 import ContestScreen from "./src/screens/ContestScreen";
 import ArtistSongListScreen from "./src/screens/ArtistSongListScreen";
 import RecordScreen from "./src/screens/RecordScreen";
+import RankingScreen from "./src/screens/RankingScreen";
+import CarouselScreen from "./src/screens/CarouselScreen";
 
 const navigator = createStackNavigator(
   {
@@ -15,7 +17,9 @@ const navigator = createStackNavigator(
     SongList2: SongListScreen2,
     PlaySong: PlaySongScreen,
     Contest: ContestScreen,
-    Record: RecordScreen
+    Record: RecordScreen,
+    Ranking: RankingScreen,
+    Carousel: CarouselScreen
   },
   {
     initialRouteName: "Home",
@@ -24,7 +28,9 @@ const navigator = createStackNavigator(
       title: "Stations",
       title: "Song List",
       title: "Content",
-      title: "Record"
+      title: "Record",
+      title: "Ranking",
+      title: "Carousel"
     }
   }
 );

@@ -21,10 +21,10 @@ const HomeScreen = (props) => {
           onPress={() => props.navigation.navigate('List')}
         />
 
-        <Button
+        {/* <Button
           title="Play Song"
           onPress={() => props.navigation.navigate('PlaySong')}
-        />
+        /> */}
 
         <Button
           title="6pm Button"

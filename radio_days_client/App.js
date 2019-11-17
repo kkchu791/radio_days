@@ -15,6 +15,7 @@ const navigator = createStackNavigator(
     SongList2: SongListScreen2,
     PlaySong: PlaySongScreen,
     Contest: ContestScreen,
+  },
   {
     initialRouteName: "Home",
     defaultNavigationOptions: {

@@ -16,8 +16,7 @@ import PlayBackControls from '../components/player/PlayBackControls';
 
 const tempImg = 'https://picsum.photos/200';
 
-const PlaySongScreen = (props) => {
-  const { navigation } = props;
+const PlayerComponent = (props) => {
   const [muted, setMuted] = useState(false);
   const [volume, setVolume] = useState(1);
   const [playing, setPlaying] = useState(true);
@@ -25,22 +24,10 @@ const PlaySongScreen = (props) => {
   
   async function startPlayer() {
     try {
-      if (navigation.getParam('songUrl')) {
-        await soundObject.loadAsync({
-          uri: navigation.getParam('songUrl')
-        });
-      } else if (navigation.getParam('file')) {
-        await soundObject.loadAsync(
-          navigation.getParam('file')
-        )
-      } else {
-        // await soundObject.loadAsync({uri: tempMusic});
-        await soundObject.loadAsync({uri: tempMusic});
-        await soundObject.loadAsync(source={
-          uri: `https://hackathon.umusic.com/prod/v1/isrc/${navigation.getParam('songId')}/stream.m3u8`,
-          headers: {'x-api-key': 'xmN6Ijjcxy1GzOGsOcu1a6EpbSden1c64P3r5bQh'}
-      })
-      }
+      await soundObject.loadAsync(source={
+        uri: `https://hackathon.umusic.com/prod/v1/isrc/${props.songId}/stream.m3u8`,
+        headers: {'x-api-key': 'xmN6Ijjcxy1GzOGsOcu1a6EpbSden1c64P3r5bQh'}
+      });
       play();
     } catch (error) {
       console.log(error);
@@ -86,12 +73,12 @@ const PlaySongScreen = (props) => {
   return (
     <View style={styles.playerContainer}>
       <PlayerHeader
-        message={navigation.getParam('songTitle')}
+        message={props.songTitle}
       />
-      <AlbumArt url={navigation.getParam('albumArt') || tempImg} />
+      <AlbumArt url={props.albumArt} />
       <TrackDetails
-        title={navigation.getParam('songTitle')}
-        artist={navigation.getParam('artist')}
+        title={props.songTitle}
+        artist={props.artist}
       />
       <SeekBar
         trackLength={200}
@@ -118,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlaySongScreen;
+export default PlayerComponent;

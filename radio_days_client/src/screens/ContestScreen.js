@@ -14,19 +14,25 @@ import RecordScreen from '../screens/RecordScreen';
 
 const { width, height } = Dimensions.get('window');
 
-const djOpen = (<Video
-  source={{uri: 'https://cloud.hypno.com/media/5dd0de9808d52f5f4f73c9b9' }}
-  shouldPlay
-  resizeMode="cover"
-  style={{ width, height }}
-/>);
+const djOpen = (
+  <View>
+    <Video
+      source={{uri: 'https://cloud.hypno.com/media/5dd0de9808d52f5f4f73c9b9' }}
+      shouldPlay
+      resizeMode="cover"
+      style={{ width, height }}
+    />
+  </View>
+);
 
 const song = (
-  <PlayerComponent
-    songId="USUM70837368"
-    songTitle="Gives you Hell"
-    artist="All American Rejects"
-  />
+  <View>
+    <PlayerComponent
+      songId="USUM70837368"
+      songTitle="Gives you Hell"
+      artist="All American Rejects"
+    />
+  </View>
 );
 
 const record = (
@@ -44,21 +50,18 @@ const ContestScreen = (props) => {
       setVideo(song);
       setTimeout(() => {
         setVideo(record);
-      }, 45000);
-    }, 15000);
+      }, 10000);
+    }, 10000);
   }, []);
 
   return (
-    <View style={styles.container}>
+    <>
       {video}
-    </View>
-  )
+    </>
+  );
 };
 
 const styles = StyleSheet.create({
-  container: {
-
-  },
 });
 
 export default ContestScreen;

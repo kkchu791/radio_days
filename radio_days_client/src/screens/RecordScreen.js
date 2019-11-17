@@ -12,11 +12,15 @@ export default class CameraExample extends React.Component {
     hasCameraPermission: null,
     type: Camera.Constants.Type.front,
     uri: null,
+    recording: false,
   };
 
   async componentDidMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ hasCameraPermission: status === 'granted' });
+    setTimeout(() => {
+      this.recordVideo();
+    }, 1000);
   }
 
   recordVideo = () => {
@@ -25,6 +29,7 @@ export default class CameraExample extends React.Component {
       .then(data => {
         this.setState({ uri: data.uri });
       });
+      this.setState({recording: true});
   }
 
   getVideoSize = () => {
@@ -37,7 +42,6 @@ export default class CameraExample extends React.Component {
       console.log(this.state.uri, "URI")
       return (
         <View>
-          <Text>This should show a video</Text>
           <Video
             source={{ uri: this.state.uri }}
             shouldPlay
@@ -77,7 +81,18 @@ export default class CameraExample extends React.Component {
                   onPress={() => {
                     this.recordVideo();
                   }}>
-                    <Text style={{ fontSize: 14, marginBottom: 10, color: 'white' }}> Start Recording</Text>
+                    <Text style={{ fontSize: 14, marginBottom: 10, color: 'white' }}>
+                      {
+                        this.state.recording
+                        ? (
+                          "Recording"
+                        )
+                        : (
+                          "Start Recording"
+                        )
+
+                      }
+                    </Text>
                 </TouchableOpacity>
               </View>
             </Camera>

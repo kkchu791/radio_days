@@ -4,6 +4,8 @@ import ListScreen from "./src/screens/ListScreen";
 import SongListScreen from "./src/screens/SongListScreen";
 import SongListScreen2 from "./src/screens/SongListScreen2";
 import PlaySongScreen from "./src/screens/PlaySongScreen";
+import ContestScreen from './src/screens/ContestScreen';
+
 
 const navigator = createStackNavigator(
   {
@@ -11,14 +13,16 @@ const navigator = createStackNavigator(
     List: ListScreen,
     SongList: SongListScreen,
     SongList2: SongListScreen2,
-    PlaySong: PlaySongScreen
+    PlaySong: PlaySongScreen,
+    Contest: ContestScreen,
   },
   {
     initialRouteName: "Home",
     defaultNavigationOptions: {
       title: "Radio Days",
       title: "Stations",
-      title: "Song List"
+      title: "Song List",
+      title: 'Content',
     }
   }
 );

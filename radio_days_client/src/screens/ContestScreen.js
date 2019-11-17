@@ -50,8 +50,8 @@ const ContestScreen = (props) => {
       setVideo(song);
       setTimeout(() => {
         setVideo(record);
-      }, 10000);
-    }, 10000);
+      }, 15000);
+    }, 30000);
   }, []);
 
   return (

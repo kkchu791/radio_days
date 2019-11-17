@@ -14,6 +14,8 @@ import TrackDetails from '../components/player/TrackDetails';
 import SeekBar from '../components/player/SeekBar';
 import PlayBackControls from '../components/player/PlayBackControls';
 
+import CarouselScreen from '../screens/CarouselScreen';
+
 const tempImg = 'https://picsum.photos/200';
 
 const PlayerComponent = (props) => {
@@ -75,7 +77,8 @@ const PlayerComponent = (props) => {
       <PlayerHeader
         message={props.songTitle}
       />
-      <AlbumArt url={props.albumArt} />
+      <CarouselScreen />
+      {/* <AlbumArt url={props.albumArt} /> */}
       <TrackDetails
         title={props.songTitle}
         artist={props.artist}
@@ -84,11 +87,11 @@ const PlayerComponent = (props) => {
         trackLength={200}
         currentPosition={50}
       />
-      <PlayBackControls
+      {/* <PlayBackControls
         paused={!playing}
         onPressPause={() => pause()}
         onPressPlay={() => play()}
-      />
+      /> */}
     </View>
   );
 }

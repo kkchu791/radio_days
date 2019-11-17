@@ -27,12 +27,6 @@ const navigator = createStackNavigator(
     initialRouteName: "Home",
     defaultNavigationOptions: {
       title: "Radio Days",
-      title: "Stations",
-      title: "Song List",
-      title: 'Content',
-      title: 'Record',
-      title: 'Ranking',
-      title: 'Carousel',
     }
   }
 );

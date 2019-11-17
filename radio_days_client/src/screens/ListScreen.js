@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import CardSection from "../components/CardSection";
 import StationDetails from "../components/StationDetails";
 
 import { Text, StyleSheet, FlatList, View, Button } from "react-native";
 
-const rock = ["rock 107.9"];
-
 const stations = [
+  "rock 107.9",
   "Hip-Hop 102.8",
   "Classical 92.7",
   "Jazz 88.1",
@@ -17,20 +16,36 @@ const stations = [
 ];
 
 const ListScreen = props => {
+  const [gps, setGps] = useState([]);
+
+  useEffect(() => {
+    (function findCoordinates() {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          setGps({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          });
+        },
+        error => console.log(error),
+        { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 }
+      );
+    })();
+  }, []);
+
   return (
     <View>
-      <FlatList
-        data={rock}
-        keyExtractor={station => station}
-        renderItem={({ item }) => {
-          return <StationDetails item={item} navigation={props.navigation} />;
-        }}
-      />
       <FlatList
         data={stations}
         keyExtractor={station => station}
         renderItem={({ item }) => {
-          return <StationDetails item={item} navigation={props.navigation} />;
+          return (
+            <StationDetails
+              item={item}
+              navigation={props.navigation}
+              location={gps}
+            />
+          );
         }}
       />
     </View>

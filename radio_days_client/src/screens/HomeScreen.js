@@ -2,48 +2,40 @@ import React from 'react';
 import {
   Text,
   StyleSheet,
-  Button,
   View,
   Alert,
+  Image,
 } from 'react-native';
+import { Button } from 'react-native-elements';
+import radio_knob_image from '../assets/images/radio_knob.png'
 
 const HomeScreen = (props) => {
   return (
-
-    <View>
+    <View style={styles.background}>
       <Text style={styles.text}>
-        Radio Days
+        Radio
+      </Text>
+
+      <Image
+        style={styles.image}
+        source={radio_knob_image}
+      />
+
+      <Text style={styles.text}>
+        Days
       </Text>
 
       <View style={styles.buttons}>
         <Button
-          title="Try me"
+          title="Play Radio"
           onPress={() => props.navigation.navigate('List')}
+          style={styles.button}
         />
-
-        {/* <Button
-          title="Play Song"
-          onPress={() => props.navigation.navigate('PlaySong')}
-        /> */}
 
         <Button
           title="6pm Button"
           onPress={() => props.navigation.navigate('Contest')}
-        />
-
-        <Button
-          title="Record Screen"
-          onPress={() => props.navigation.navigate('Record')}
-        />
-
-        <Button
-          title="Ranking Screen"
-          onPress={() => props.navigation.navigate('Ranking')}
-        />
-
-        <Button
-          title="Carousel Screen"
-          onPress={() => props.navigation.navigate('Carousel')}
+          style={styles.button}
         />
       </View>
     </View>
@@ -57,9 +49,24 @@ const styles = StyleSheet.create({
     fontSize: 30,
     alignSelf: 'center',
     paddingTop: 30,
+    color: 'white',
+    fontWeight: 'bold',
   },
   buttons: {
-    paddingTop: 300,
+    paddingTop: 100,
+    width: '80%',
+    alignSelf: 'center'
+  },
+  button: {
+    padding: 15,
+  },
+  background: {
+    backgroundColor: '#1A1414',
+  },
+  image: {
+    marginTop: 30,
+    marginBottom: 30,
+    alignSelf: 'center',
   }
 });
 

@@ -5,6 +5,7 @@ import { StyleSheet, FlatList, View, Button } from "react-native";
 
 const ArtistSongListScreen = props => {
   const [songs, setSongs] = useState({});
+  const [albumArt, setAlbumArt] = useState("");
   const { navigation } = props;
 
   useEffect(() => {
@@ -14,7 +15,7 @@ const ArtistSongListScreen = props => {
       .then(response => setSongs(response["artist"]["tracks"]))
       .catch(error => console.log(error));
   }, []);
-  console.log(songs);
+
   return (
     <View>
       <FlatList

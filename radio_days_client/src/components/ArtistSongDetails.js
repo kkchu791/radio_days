@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import CardSection from "../components/CardSection";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { getAlbumArt } from "../api/umg";
 import guns_n_roses_image from "../assets/images/guns_n_roses.png";
 
 const ArtistSongDetails = props => {
+  const [albumArt, setAlbumArt] = useState("");
   const { navigation } = props;
+
+  useEffect(() => {
+    getAlbumArt(props.item.isrc).then(response =>
+      setAlbumArt(response["coverUrl"]).catch(error => console.log(error))
+    );
+  }, []);
   return (
     <Card>
       <TouchableOpacity
@@ -13,12 +21,20 @@ const ArtistSongDetails = props => {
           props.navigation.navigate("PlaySong", {
             songId: props.item.isrc,
             songTitle: props.item.title,
-            artist: props.author
+            artist: props.author,
+            albumArt: albumArt
           })
         }
       >
         <CardSection>
-          <View style={styles.thumbnailContainerStyle}></View>
+          <View style={styles.thumbnailContainerStyle}>
+            <Image
+              style={styles.thumbnailStyle}
+              source={
+                albumArt ? { uri: albumArt.toString() } : guns_n_roses_image
+              }
+            />
+          </View>
 
           <View style={styles.headerContentStyle}>
             <Text style={styles.headerTextStyle}>{props.item.title}</Text>

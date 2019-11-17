@@ -10,8 +10,8 @@ const ArtistSongDetails = props => {
   const { navigation } = props;
 
   useEffect(() => {
-    getAlbumArt(props.item.isrc).then(response =>
-      setAlbumArt(response["coverUrl"]).catch(error => console.log(error))
+    getAlbumArt(props.item.isrc).then(async response =>
+      setAlbumArt(response["coverUrl"])
     );
   }, []);
   return (

@@ -23,9 +23,9 @@ const SongListScreen2 = props => {
     <View>
       <FlatList
         data={artists}
-        keyExtractor={info => ("artistName", info.name)}
+        keyExtractor={info => info.name}
         renderItem={({ item }) => {
-          return <SongDetails2 item={item} />;
+          return <SongDetails2 item={item} navigation={props.navigation} />;
         }}
       />
     </View>

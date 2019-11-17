@@ -11,10 +11,6 @@ import opening from '../assets/videos/op.mp4'
 import PlayerComponent from '../components/PlayerComponent';
 import RecordScreen from '../screens/RecordScreen';
 import RankingScreen from '../screens/RankingScreen';
-<<<<<<< HEAD
-=======
-
->>>>>>> contest
 
 const { width, height } = Dimensions.get('window');
 

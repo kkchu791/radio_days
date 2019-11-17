@@ -25,22 +25,10 @@ const PlaySongScreen = (props) => {
   
   async function startPlayer() {
     try {
-      if (navigation.getParam('songUrl')) {
-        await soundObject.loadAsync({
-          uri: navigation.getParam('songUrl')
-        });
-      } else if (navigation.getParam('file')) {
-        await soundObject.loadAsync(
-          navigation.getParam('file')
-        )
-      } else {
-        // await soundObject.loadAsync({uri: tempMusic});
-        await soundObject.loadAsync({uri: tempMusic});
         await soundObject.loadAsync(source={
           uri: `https://hackathon.umusic.com/prod/v1/isrc/${navigation.getParam('songId')}/stream.m3u8`,
           headers: {'x-api-key': 'xmN6Ijjcxy1GzOGsOcu1a6EpbSden1c64P3r5bQh'}
-      })
-      }
+      });
       play();
     } catch (error) {
       console.log(error);

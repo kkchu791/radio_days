@@ -7,6 +7,21 @@ import * as FileSystem from 'expo-file-system';
 //import { FileSystem } from 'expo';
 import axios from 'axios';
 
+url = 'https://storage.googleapis.com/upload/storage/v1/b/radio-days-audio-files/o?uploadType=media&name=Video';
+
+async function sendVideo(data) {
+  console.log(data);
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      "Authorization": "Bearer ya29.Il-xB2SCldymUQJ5GRgVdZE4yqoYgTkIOCAsTksccqyus9tsU1TpEpEQPDBKMLc65_uPO7OuWcAOtYanqB4gXbhUj65kaekdmHlWO-LHbjc1IFe1Y3FnNHKN5yVH3IU4SA",
+    },
+    body: data
+  })
+  .then((resp) => console.log(resp));
+}
+
+
 export default class CameraExample extends React.Component {
   state = {
     hasCameraPermission: null,
@@ -40,6 +55,7 @@ export default class CameraExample extends React.Component {
   render() {
     if (this.state.uri) {
       console.log(this.state.uri, "URI")
+      sendVideo(this.state.uri);
       return (
         <View>
           <Video

@@ -35,6 +35,11 @@ const HomeScreen = (props) => {
           title="Record Screen"
           onPress={() => props.navigation.navigate('Record')}
         />
+
+        <Button
+          title="Ranking Screen"
+          onPress={() => props.navigation.navigate('Ranking')}
+        />
       </View>
     </View>
 

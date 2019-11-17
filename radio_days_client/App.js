@@ -8,7 +8,6 @@ import ContestScreen from "./src/screens/ContestScreen";
 import ArtistSongListScreen from "./src/screens/ArtistSongListScreen";
 import RecordScreen from './src/screens/RecordScreen';
 
-
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,

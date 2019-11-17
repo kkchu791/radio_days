@@ -1,4 +1,8 @@
 import React from 'react';
+import Card from '../components/Card';
+import CardSection from '../components/CardSection';
+import StationDetails from '../components/StationDetails';
+
 import {
   Text,
   StyleSheet,
@@ -20,18 +24,14 @@ const stations = [
 const ListScreen = (props) => {
   return (
     <View>
-      <Text style={styles.textStyle}>Radio Stations</Text>
-
       <FlatList
         data={stations}
         keyExtractor={(station) => station}
         renderItem={({item}) => {
           return (
-            <Button
-              title={item}
-              key={item}
-              style={styles.itemStyle}
-              onPress={() => props.navigation.navigate('SongList')}
+            <StationDetails
+              item={item}
+              navigation={props.navigation}
             />
           )
         }}

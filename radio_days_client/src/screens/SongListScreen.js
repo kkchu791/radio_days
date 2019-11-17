@@ -1,4 +1,6 @@
 import React from 'react';
+import SongDetails from '../components/SongDetails';
+
 import {
   StyleSheet,
   FlatList,
@@ -22,14 +24,8 @@ const SongListScreen = (props) => {
         keyExtractor={(song) => song.id}
         renderItem={({item}) => {
           return (
-            <Button
-              title={item.title}
-              onPress={() => {
-                props.navigation.navigate('PlaySong', {
-                  songId: item.id,
-                  songTitle: item.title,
-                });
-              }}
+            <SongDetails
+              item={item}
             />
           );
         }}

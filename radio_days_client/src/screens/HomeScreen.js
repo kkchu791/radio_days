@@ -11,19 +11,21 @@ const HomeScreen = (props) => {
   return (
 
     <View>
-
       <Text style={styles.text}>
         Radio Days
       </Text>
 
-      <Button
-        title="Try me"
-        onPress={() => props.navigation.navigate('List')}
-      />
-      <Button
-        title="Play Song"
-        onPress={() => props.navigation.navigate('PlaySong')}
-      />
+      <View style={styles.buttons}>
+        <Button
+          title="Try me"
+          onPress={() => props.navigation.navigate('List')}
+        />
+
+        <Button
+          title="Play Song"
+          onPress={() => props.navigation.navigate('PlaySong')}
+        />
+      </View>
     </View>
 
 
@@ -32,7 +34,12 @@ const HomeScreen = (props) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 30
+    fontSize: 30,
+    alignSelf: 'center',
+    paddingTop: 30,
+  },
+  buttons: {
+    paddingTop: 300,
   }
 });
 

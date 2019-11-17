@@ -14,7 +14,9 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'Radio Days'
+      title: 'Radio Days',
+      title: 'Stations',
+      title: 'Song List',
     }
   }
 );

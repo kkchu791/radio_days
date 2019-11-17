@@ -35,12 +35,6 @@ const song = (
   </View>
 );
 
-const ranking = (
-  <View>
-    <RankingScreen />
-  </View>
-);
-
 const record = (
   <RecordScreen />
 );

@@ -4,31 +4,25 @@ import CardSection from "../components/CardSection";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import guns_n_roses_image from "../assets/images/guns_n_roses.png";
 
-const SongDetails2 = props => {
+const ArtistSongDetails = props => {
+  const { navigation } = props;
   return (
     <Card>
       <TouchableOpacity
         onPress={() =>
-          props.navigation.navigate("ArtistSongList", {
-            artist: props.item.name
+          props.navigation.navigate("PlaySong", {
+            songId: props.item.isrc,
+            songTitle: props.item.title,
+            artist: props.author
           })
         }
       >
         <CardSection>
-          <View style={styles.thumbnailContainerStyle}>
-            <Image
-              style={styles.thumbnailStyle}
-              source={
-                props.item.image_url
-                  ? { uri: props.item.image_url.toString() }
-                  : guns_n_roses_image
-              }
-            />
-          </View>
+          <View style={styles.thumbnailContainerStyle}></View>
 
           <View style={styles.headerContentStyle}>
-            <Text style={styles.headerTextStyle}>{props.item.name}</Text>
-            {props.item.author && <Text>{props.item.author}</Text>}
+            <Text style={styles.headerTextStyle}>{props.item.title}</Text>
+            {props.item.label_name && <Text>{props.item.label_name}</Text>}
           </View>
         </CardSection>
       </TouchableOpacity>
@@ -61,4 +55,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SongDetails2;
+export default ArtistSongDetails;

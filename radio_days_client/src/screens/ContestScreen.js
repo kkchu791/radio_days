@@ -17,7 +17,7 @@ const { width, height } = Dimensions.get('window');
 const djOpen = (
   <View>
     <Video
-      source={{uri: 'https://cloud.hypno.com/media/5dd0de9808d52f5f4f73c9b9' }}
+      source={{uri: 'https://cloud.hypno.com/media/5dd172d708d52f69905d16e2' }}
       shouldPlay
       resizeMode="cover"
       style={{ width, height }}

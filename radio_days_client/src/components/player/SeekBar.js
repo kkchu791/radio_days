@@ -4,7 +4,7 @@ import {
   View, Text, StyleSheet, Image, TouchableOpacity 
 } from "react-native";
 
-import Slider from '@react-native-community/slider';
+import { Slider } from 'react-native-elements';
 
 function pad(n, width, z=0) {
   n = n + '';
@@ -39,7 +39,7 @@ const SeekBar = ({
         value={currentPosition}
         style={styles.slider}
         minimumTrackTintColor="#fff"
-        maximumTrackTintColor="rgba(255, 255, 255, 0.14)"
+        maximumTrackTintColor="black"
         thumbStyle={styles.thumb}
         trackStyle={styles.track}
       />
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
   container: {
     paddingLeft: 16,
     paddingRight: 16,
-    paddingTop: 16
+    paddingTop: 16,
+    backgroundColor: 'grey',
   },
   track: {
     height: 2,
@@ -64,10 +65,10 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: "red"
+    backgroundColor: "white"
   },
   text: {
-    color: "rgba(255, 255, 255, 0.72)",
+    color: "black",
     fontSize: 12,
     textAlign: "center"
   }

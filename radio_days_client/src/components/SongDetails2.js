@@ -1,20 +1,27 @@
 import React from "react";
 import Card from "../components/Card";
 import CardSection from "../components/CardSection";
-import guns_n_roses_image from "../assets/images/guns_n_roses.png";
 import { StyleSheet, Text, View, Image } from "react-native";
+import guns_n_roses_image from "../assets/images/guns_n_roses.png";
 
-const SongDetails = props => {
+const SongDetails2 = props => {
   return (
     <Card>
       <CardSection>
         <View style={styles.thumbnailContainerStyle}>
-          <Image style={styles.thumbnailStyle} source={guns_n_roses_image} />
+          <Image
+            style={styles.thumbnailStyle}
+            source={
+              props.item.image_url
+                ? { uri: props.item.image_url.toString() }
+                : guns_n_roses_image
+            }
+          />
         </View>
 
         <View style={styles.headerContentStyle}>
-          <Text style={styles.headerTextStyle}>{props.item.title}</Text>
-          <Text>{props.item.author}</Text>
+          <Text style={styles.headerTextStyle}>{props.item.name}</Text>
+          {props.item.author && <Text>{props.item.author}</Text>}
         </View>
       </CardSection>
     </Card>
@@ -46,4 +53,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SongDetails;
+export default SongDetails2;

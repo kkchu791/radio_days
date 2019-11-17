@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from "react";
-import SongDetails from "../components/SongDetails";
+import SongDetails2 from "../components/SongDetails2";
 import { getMusicByVenues } from "../api/bandsintown";
 import { StyleSheet, FlatList, View, Button } from "react-native";
 
 const SongListScreen2 = props => {
-  const [songs, setSongs] = useState({});
   const [artists, setArtists] = useState({});
+
   useEffect(() => {
     getMusicByVenues("rock", 34.1035949, -118.3267643)
       .then(response => {
-        console.log(response),
-          setArtists(response["_embedded"]),
-          setSongs(response["events"]);
+        const info = response.events.map(show => {
+          let artistInfo = response._embedded.artists.filter(
+            a => a.id === show.artist_id
+          )[0];
+          return artistInfo;
+        });
+        setArtists(info);
       })
       .catch(error => console.log(error));
   }, []);
-  console.log("hello", songs);
-  console.log("hello", artists);
   return (
     <View>
       <FlatList
-        data={songs}
-        keyExtractor={song => song.artist_id.toString()}
+        data={artists}
+        keyExtractor={info => ("artistName", info.name)}
         renderItem={({ item }) => {
-          return <SongDetails item={item} />;
+          return <SongDetails2 item={item} />;
         }}
       />
     </View>

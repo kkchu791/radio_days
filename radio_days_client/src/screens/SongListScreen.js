@@ -9,12 +9,39 @@ import {
   TouchableOpacity
 } from "react-native";
 
+const music = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+
 const songs = [
-  { title: "Gimme Shelter", artist: "Rolling Stones", id: "1" },
-  { title: "Bohemiab Rhapsody", artist: "Queen", id: "2" },
-  { title: "Sweet Child O' Mine", artist: "Guns N' Roses", id: "3" },
-  { title: "Livin' On A Prayer", artist: "Bon Jovi", id: "4" },
-  { title: "Kickstart My Heart", artist: "Motley Crue", id: "5" }
+  {
+    title: "Gimme Shelter",
+    artist: "Rolling Stones",
+    id: "1",
+    file: require("../assets/music/gimme_shelter.mp3"),
+  },
+  {
+    title: "Bohemiab Rhapsody",
+    artist: "Queen",
+    id: "2",
+    url: music,
+  },
+  {
+    title: "Sweet Child O' Mine",
+    artist: "Guns N' Roses",
+    id: "3",
+    url: music,
+  },
+  {
+    title: "Livin' On A Prayer",
+    artist: "Bon Jovi",
+    id: "4",
+    url: music,
+  },
+  {
+    title: "Kickstart My Heart",
+    artist: "Motley Crue",
+    id: "5",
+    url: music,
+  }
 ];
 
 const SongListScreen = props => {
@@ -30,7 +57,9 @@ const SongListScreen = props => {
                 props.navigation.navigate("PlaySong", {
                   songId: item.id,
                   songTitle: item.title,
-                  artist: item.artist
+                  artist: item.artist,
+                  songUrl: item.url,
+                  file: item.file,
                 });
               }}
             >

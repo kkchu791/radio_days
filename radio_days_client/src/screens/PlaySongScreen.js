@@ -16,7 +16,7 @@ import PlayBackControls from '../components/player/PlayBackControls';
 
 const tempImg = 'https://picsum.photos/200';
 
-const music = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+// const music = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
 const PlaySongScreen = (props) => {
   const { navigation } = props;
@@ -28,7 +28,15 @@ const PlaySongScreen = (props) => {
   async function startPlayer() {
 
     try {
-      await soundObject.loadAsync({uri: music});
+      if (navigation.getParam('songUrl')) {
+        await soundObject.loadAsync({
+          uri: navigation.getParam('songUrl')
+        });
+      } else {
+        await soundObject.loadAsync(
+          navigation.getParam('file')
+        )
+      }
       play();
     } catch (error) {
       console.log(error);

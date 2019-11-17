@@ -6,6 +6,7 @@ import {
   FlatList,
   View,
   Button,
+  TouchableOpacity,
 } from 'react-native';
 
 const songs = [
@@ -24,9 +25,19 @@ const SongListScreen = (props) => {
         keyExtractor={(song) => song.id}
         renderItem={({item}) => {
           return (
-            <SongDetails
-              item={item}
-            />
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate('PlaySong', {
+                  songId: item.id,
+                  songTitle: item.title,
+                  artist: item.artist,
+                });
+              }}
+            >
+              <SongDetails
+                item={item}
+              />
+            </TouchableOpacity>
           );
         }}
       />

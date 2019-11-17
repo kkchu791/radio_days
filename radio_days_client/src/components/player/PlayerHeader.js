@@ -5,6 +5,9 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 import Icon from 'react-native-vector-icons/AntDesign';
 
+const back = <Icon name="back" size={20} color="black" />;
+const queue = <Icon name="caretdown" size={20} color="black" />;
+
 const MyButton = (
   <Icon.Button
     name="facebook"
@@ -24,13 +27,13 @@ const PlayerHeader = ({
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onDownPress}>
-        <Text>Back</Text>
+        {back}
       </TouchableOpacity>
       <Text onPress={onMessagePress} style={styles.message}>
         {message.toUpperCase()}
       </Text>
       <TouchableOpacity onPress={onQueuePress}>
-        <Text>Queue</Text>
+        {queue}
       </TouchableOpacity>
     </View>
   );

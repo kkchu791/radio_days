@@ -16,8 +16,8 @@ import PlayBackControls from '../components/player/PlayBackControls';
 
 const tempImg = 'https://picsum.photos/200';
 
-const tempMusic = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-// const tempMusic = require("../assets/music/response.m3u8");
+// const tempMusic = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+const tempMusic = "./response.m3u8";
 
 const PlaySongScreen = (props) => {
   const { navigation } = props;
@@ -38,7 +38,11 @@ const PlaySongScreen = (props) => {
           navigation.getParam('file')
         )
       } else {
-        await soundObject.loadAsync({uri: tempMusic});
+        // await soundObject.loadAsync({uri: tempMusic});
+        await soundObject.loadAsync(source={
+          uri: `https://hackathon.umusic.com/prod/v1/isrc/${navigation.getParam('songId')}/stream.m3u8`,
+          headers: {'x-api-key': 'xmN6Ijjcxy1GzOGsOcu1a6EpbSden1c64P3r5bQh'}
+      })
       }
       play();
     } catch (error) {
@@ -87,7 +91,7 @@ const PlaySongScreen = (props) => {
       <PlayerHeader
         message={navigation.getParam('songTitle')}
       />
-      <AlbumArt url={navigation.getParam('albumArt')} />
+      <AlbumArt url={navigation.getParam('albumArt') || tempImg} />
       <TrackDetails
         title={navigation.getParam('songTitle')}
         artist={navigation.getParam('artist')}

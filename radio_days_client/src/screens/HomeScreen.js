@@ -30,6 +30,11 @@ const HomeScreen = (props) => {
           title="6pm Button"
           onPress={() => props.navigation.navigate('Contest')}
         />
+
+        <Button
+          title="Record Screen"
+          onPress={() => props.navigation.navigate('Record')}
+        />
       </View>
     </View>
 

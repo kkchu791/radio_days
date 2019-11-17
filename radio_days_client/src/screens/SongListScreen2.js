@@ -7,7 +7,11 @@ const SongListScreen2 = props => {
   const [artists, setArtists] = useState({});
 
   useEffect(() => {
-    getMusicByVenues("rock", 34.1035949, -118.3267643)
+    getMusicByVenues(
+      props.navigation.getParam("genre"),
+      34.1035949,
+      -118.3267643
+    )
       .then(response => {
         const info = response.events.map(show => {
           let artistInfo = response._embedded.artists.filter(

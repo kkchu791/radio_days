@@ -12,11 +12,13 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 const back = <Icon name="stepbackward" size={30} color="black" />;
 const next = <Icon name="stepforward" size={30} color="black" />;
-const play = <Icon name="play" size={40} color="black" />;
+const play = <Icon name="caretright" size={40} color="black" />;
+const pause = <Icon name="pause" size={40} color="black" />;
 
 const PlayBackControls = ({
   paused,
   onPressPlay,
+  onPressPause,
   onBack,
   onNext,
   nextDisabled,
@@ -34,14 +36,14 @@ const PlayBackControls = ({
       ? (
         <TouchableOpacity onPress={onPressPause}>
           <View style={styles.playButton}>
-            {play}
+            {pause}
           </View>
         </TouchableOpacity>
       )
       : (
           <TouchableOpacity onPress={onPressPlay}>
             <View style={styles.playButton}>
-              {next}
+              {play}
             </View>
           </TouchableOpacity>
         )

@@ -10,6 +10,7 @@ import opening from '../assets/videos/op.mp4'
 
 import PlayerComponent from '../components/PlayerComponent';
 import RecordScreen from '../screens/RecordScreen';
+import RankingScreen from '../screens/RankingScreen';
 
 
 const { width, height } = Dimensions.get('window');
@@ -35,6 +36,12 @@ const song = (
   </View>
 );
 
+const ranking = (
+  <View>
+    <RankingScreen />
+  </View>
+);
+
 const record = (
   <RecordScreen />
 );
@@ -50,8 +57,11 @@ const ContestScreen = (props) => {
       setVideo(song);
       setTimeout(() => {
         setVideo(record);
-      }, 15000);
-    }, 30000);
+        setTimeout(() => {
+          setVideo(ranking);
+        }, 18000)
+      }, 30000);
+    }, 15000);
   }, []);
 
   return (

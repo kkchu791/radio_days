@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
     paddingRight: 12,
     flexDirection: "row",
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
   },
   message: {
     flex: 1,

@@ -38,7 +38,7 @@ const SeekBar = ({
         onSlidingComplete={onSeek}
         value={currentPosition}
         style={styles.slider}
-        minimumTrackTintColor="#fff"
+        minimumTrackTintColor="blue"
         maximumTrackTintColor="black"
         thumbStyle={styles.thumb}
         trackStyle={styles.track}
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 16,
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
   },
   track: {
     height: 2,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: "white"
+    backgroundColor: "blue"
   },
   text: {
     color: "black",

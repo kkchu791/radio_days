@@ -40,6 +40,11 @@ const HomeScreen = (props) => {
           title="Ranking Screen"
           onPress={() => props.navigation.navigate('Ranking')}
         />
+
+        <Button
+          title="Carousel Screen"
+          onPress={() => props.navigation.navigate('Carousel')}
+        />
       </View>
     </View>
 

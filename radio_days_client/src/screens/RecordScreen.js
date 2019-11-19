@@ -7,10 +7,9 @@ import * as FileSystem from 'expo-file-system';
 //import { FileSystem } from 'expo';
 import axios from 'axios';
 
-url = 'https://storage.googleapis.com/upload/storage/v1/b/radio-days-audio-files/o?uploadType=media&name=Video';
 
 async function sendVideo(data) {
-  console.log(data);
+  url = 'https://storage.googleapis.com/upload/storage/v1/b/radio-days-audio-files/o?uploadType=media&name=Video';
   const response = await fetch(url, {
     method: 'POST',
     headers: {
@@ -20,6 +19,20 @@ async function sendVideo(data) {
   })
   .then((resp) => console.log(resp));
 }
+
+// async function sendVideoHypno(data) {
+//   const body = new FormData()
+//   body.append("camera", `@${data}`);
+  
+//   await axios("https://cloud.hypno.com/jobs?packageId=5dd1725b08d52f69905d16e1", {
+//     method: 'POST',
+//     body,
+//     headers: {
+//       "Content-Type": "multipart/form-data"
+//     }
+//   })
+//   .then((resp) => console.log(resp));
+// }
 
 
 export default class CameraExample extends React.Component {
@@ -56,6 +69,7 @@ export default class CameraExample extends React.Component {
     if (this.state.uri) {
       console.log(this.state.uri, "URI")
       sendVideo(this.state.uri);
+      // sendVideoHypno(this.state.uri);
       return (
         <View>
           <Video

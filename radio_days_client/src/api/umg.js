@@ -1,3 +1,5 @@
+import umgApiKey from "../api/apikeys";
+
 const baseURL = "https://hackathon.umusic.com/prod/v1/";
 export const getArtistId = async artist => {
   let url = `${baseURL}search/artists?q=${artist}`;
@@ -6,7 +8,7 @@ export const getArtistId = async artist => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "x-api-key": "xmN6Ijjcxy1GzOGsOcu1a6EpbSden1c64P3r5bQh"
+      "x-api-key": umgApiKey
     }
   });
   const responseJson = response.json();
@@ -20,7 +22,7 @@ export const getSongsByArtist = async artistId => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "x-api-key": "xmN6Ijjcxy1GzOGsOcu1a6EpbSden1c64P3r5bQh"
+      "x-api-key": umgApiKey
     }
   });
   const responseJson = response.json();
@@ -34,7 +36,7 @@ export const getAlbumArt = async isrc => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "x-api-key": "xmN6Ijjcxy1GzOGsOcu1a6EpbSden1c64P3r5bQh"
+      "x-api-key": umgApiKey
     }
   });
   const responseJson = response.json();

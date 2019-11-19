@@ -1,4 +1,4 @@
-import bandsInTownApiKey from "../api/apikeys";
+import { bandsInTownApiKey } from "../api/apikeys";
 
 const baseURL = "https://search.bandsintown.com/";
 

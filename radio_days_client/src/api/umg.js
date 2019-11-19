@@ -1,4 +1,4 @@
-import umgApiKey from "../api/apikeys";
+import { umgApiKey } from "../api/apikeys";
 
 const baseURL = "https://hackathon.umusic.com/prod/v1/";
 export const getArtistId = async artist => {
@@ -11,6 +11,8 @@ export const getArtistId = async artist => {
       "x-api-key": umgApiKey
     }
   });
+  console.log(umgApiKey);
+  console.log(response);
   const responseJson = response.json();
   return responseJson;
 };

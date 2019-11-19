@@ -9,7 +9,7 @@ export const getMusicByVenues = async (genre, latitude, longitude) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "x-api-key": "nTG4tbSXpIaniCHlJ62q06GzIpROk6qh56EiK7N1"
+      "x-api-key": bandsInTownApiKey
     }
   });
   const responseJson = response.json();

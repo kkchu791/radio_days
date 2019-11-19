@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "exmulti",
-    "slug": "exmulti",
+    "name": "RadioDays",
+    "slug": "radiodays",
+    "description": "Radio Days does two things: First: it is a music discovery app that uses the Bands In Town API and Universal Music Group's Hackathon API to stream music from artists of local venues. Second: it is a nightly live Karaoke Challenge aimed to reunite communities.",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
@@ -11,6 +12,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
+    "githubUrl": "https://github.com/kkchu791/radio_days",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",

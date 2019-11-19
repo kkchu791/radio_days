@@ -1,4 +1,4 @@
-import bandsInTownApiKey from "../api/apikeys";
+import { bandsInTownApiKey } from "../api/apikeys";
 
 const baseURL = "https://search.bandsintown.com/";
 
@@ -9,7 +9,7 @@ export const getMusicByVenues = async (genre, latitude, longitude) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      "x-api-key": bandsInTownApiKey
+      "x-api-key": "nTG4tbSXpIaniCHlJ62q06GzIpROk6qh56EiK7N1"
     }
   });
   const responseJson = response.json();
